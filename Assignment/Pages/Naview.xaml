@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="Assignment.Pages.Naview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Assignment.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!-- xmlns:muxc="using:Microsoft.UI.Xaml.Controls" -->
+    <Grid>
+        <NavigationView x:Name="NavView"
+                         Loaded="NavView_Loaded"
+                         ItemInvoked="NavView_ItemInvoked"
+                         BackRequested="NavView_BackRequested">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="home" Icon="Home" Content="Home"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItemHeader x:Name="MainPagesHeader"
+                                           Content="Main Page"/>
+                <NavigationViewItem Content="Upload" Tag="upload">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE11C;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="song" Icon="Audio" Content="All Song"/>
+                <!--<NavigationViewItem Tag="games" Content="Games">
+                    <NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7FC;"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="music" Icon="Audio" Content="Music"/>-->
+                <NavigationViewItemHeader x:Name="YourlibraryHeader"
+                                           Content="YOUR LIBRARY"/>
+                <NavigationViewItemSeparator/>
+                <NavigationViewItem Tag="mysong" Icon="MusicInfo" Content="My Song"/>
+                <!--<NavigationViewItem Tag="register" Icon="AddFriend" Content="Register"/>-->
+                <NavigationViewItem Tag="login" Icon="Contact" Content="Login"/>
+                <!--<NavigationViewItem Tag="file" Icon="AddFriend" Content="File Handle"/>-->
+                
+            </NavigationView.MenuItems>
+
+            <NavigationView.AutoSuggestBox>
+                <!-- See AutoSuggestBox documentation for
+                 more info about how to implement search. -->
+                <AutoSuggestBox x:Name="NavViewSearchBox" QueryIcon="Find"/>
+            </NavigationView.AutoSuggestBox>
+
+            <Frame x:Name="ContentFrame" Padding="12,0,12,24" IsTabStop="True"
+                   NavigationFailed="ContentFrame_NavigationFailed"/>
+        </NavigationView>
+    </Grid>
+</Page>
